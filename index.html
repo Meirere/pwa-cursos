@@ -6,7 +6,10 @@
 
 <title>Cursos | Perícia Criminal</title>
 
+<link rel="manifest" href="manifest.json">
+
 <meta name="theme-color" content="#8b0000">
+<meta name="apple-mobile-web-app-capable" content="yes">
 
 <style>
 
@@ -103,7 +106,7 @@ footer {
 
 <div class="container">
 
-<img src="icon.png" class="logo">
+<img src="icon.png" class="logo" alt="Cursos CTP">
 
 <h1>Cursos</h1>
 
@@ -138,14 +141,14 @@ Curso voltado ao exame pericial dos sistemas de freio de veículos pesados,
 com abordagem prática dos componentes, funcionamento e principais falhas.
 </p>
 
-<a class="botao" href="#">
+<a class="botao" href="https://meirere.github.io/pwa-freios/">
 Ver curso
 </a>
 
 </div>
 
 
-<a class="voltar" href="index.html">
+<a class="voltar" href="https://meirere.github.io/pwa-hub/">
 ← Voltar para o HUB
 </a>
 
@@ -154,6 +157,14 @@ Ver curso
 </footer>
 
 </div>
+
+<script>
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+
+</script>
 
 </body>
 </html>
