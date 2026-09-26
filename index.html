@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Cursos | Curso Técnico Pericial</title>
+<title>Curso Técnico Pericial | CTP</title>
 
 <link rel="manifest" href="manifest.json">
 
-<meta name="theme-color" content="#8b0000">
+<meta name="theme-color" content="#071525">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 <style>
@@ -28,10 +30,13 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #111;
-  color: white;
-  font-family: Arial, sans-serif;
+
+  background: #07111d;
+  color: #f4f7fa;
+
+  font-family: Arial, Helvetica, sans-serif;
 }
+
 
 /* =========================
    CABEÇALHO FIXO
@@ -39,42 +44,53 @@ body {
 
 .topo {
   position: fixed;
+
   top: 0;
   left: 0;
+
   width: 100%;
   height: 68px;
 
-  background: rgba(17, 17, 17, 0.96);
-  border-bottom: 1px solid #333;
+  background: rgba(5, 15, 27, 0.96);
+
+  border-bottom: 1px solid rgba(255,255,255,0.10);
 
   display: flex;
   align-items: center;
 
   z-index: 1000;
+
+  backdrop-filter: blur(8px);
 }
 
 .topo-conteudo {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1250px;
+
   margin: auto;
   padding: 0 24px;
 
   display: flex;
   align-items: center;
+
   gap: 28px;
 }
+
 
 /* Marca */
 
 .marca {
   display: flex;
   align-items: center;
+
   gap: 10px;
 
   color: white;
+
   text-decoration: none;
+
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 
   white-space: nowrap;
 }
@@ -82,23 +98,31 @@ body {
 .marca img {
   width: 42px;
   height: 42px;
+
   object-fit: contain;
+
   border-radius: 8px;
 }
+
 
 /* Navegação */
 
 .menu {
   display: flex;
   align-items: center;
+
   gap: 24px;
+
   flex: 1;
 }
 
 .menu a {
-  color: #ccc;
+  color: #c8d2dc;
+
   text-decoration: none;
-  font-size: 0.95rem;
+
+  font-size: 0.94rem;
+
   transition: 0.2s;
 }
 
@@ -106,185 +130,520 @@ body {
   color: white;
 }
 
+
 /* Minha Conta */
 
 .minha-conta {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 7px;
 
-  padding: 11px 17px;
+  padding: 10px 16px;
 
-  background: #8b0000;
+  border: 1px solid rgba(255,255,255,0.22);
+
+  background: rgba(255,255,255,0.07);
+
   color: white;
 
   text-decoration: none;
-  font-weight: bold;
-  font-size: 0.92rem;
 
-  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.90rem;
+
+  border-radius: 9px;
+
   white-space: nowrap;
 
   transition: 0.2s;
 }
 
 .minha-conta:hover {
-  background: #a80000;
-  transform: translateY(-1px);
+  background: rgba(255,255,255,0.14);
 }
 
-/* Botão menu celular */
+
+/* Menu celular */
 
 .menu-mobile {
   display: none;
 
   background: transparent;
-  border: 1px solid #444;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
   color: white;
 
   border-radius: 8px;
+
   padding: 8px 10px;
 
   font-size: 1.3rem;
+
   cursor: pointer;
 }
 
+
 /* =========================
-   CONTEÚDO
+   HERO / CAPA
 ========================= */
 
-.container {
-  width: 100%;
-  max-width: 1100px;
+.hero {
 
-  margin: auto;
+  min-height: 680px;
 
-  padding: 110px 24px 40px;
+  padding:
+    135px
+    24px
+    80px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
 
   text-align: center;
+
+  background:
+
+    linear-gradient(
+      rgba(4, 13, 24, 0.30),
+      rgba(4, 13, 24, 0.78)
+    ),
+
+    url("fundo-ctp.png");
+
+  background-size: cover;
+
+  background-position: center;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.logo {
-  width: 120px;
-  height: 120px;
+.hero-conteudo {
+
+  width: 100%;
+
+  max-width: 1180px;
+
+  margin: auto;
+}
+
+.logo-principal {
+
+  width: 115px;
+  height: 115px;
 
   object-fit: contain;
 
-  margin: 10px auto 20px;
+  border-radius: 16px;
 
-  display: block;
+  margin-bottom: 20px;
 
-  border-radius: 12px;
+  filter:
+    drop-shadow(
+      0 6px 14px rgba(0,0,0,0.50)
+    );
 }
 
-h1 {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  margin: 0 0 10px;
+.hero h1 {
+
+  margin: 0;
+
+  font-size:
+    clamp(
+      2.2rem,
+      5vw,
+      3.6rem
+    );
+
+  letter-spacing: 0.3px;
+
+  text-shadow:
+    0 3px 12px rgba(0,0,0,0.7);
 }
 
-.subtitulo {
-  color: #cfcfcf;
-  font-size: 1.05rem;
-  margin-bottom: 40px;
+.hero-subtitulo {
+
+  margin:
+    15px
+    auto
+    48px;
+
+  max-width: 680px;
+
+  color: #d5dde5;
+
+  font-size: 1.15rem;
+
+  line-height: 1.6;
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.8);
 }
+
 
 /* =========================
-   CURSOS
+   QUATRO ACESSOS
 ========================= */
 
-.lista-cursos {
+.acessos {
+
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(4, minmax(0, 1fr));
 
-  gap: 24px;
-
-  align-items: stretch;
+  gap: 16px;
 }
 
-.curso {
-  background: #1c1c1c;
+.acesso {
 
-  border: 1px solid #333;
-  border-radius: 18px;
+  min-height: 125px;
 
-  padding: 26px 22px;
-
-  text-align: left;
-
-  box-shadow:
-    0 8px 18px rgba(0,0,0,0.35);
+  padding: 22px 15px;
 
   display: flex;
+
   flex-direction: column;
-}
 
-.curso h2 {
-  margin: 0 0 12px;
-  font-size: 1.4rem;
-}
+  align-items: center;
+  justify-content: center;
 
-.curso p {
-  color: #cfcfcf;
-  line-height: 1.6;
-
-  margin: 0 0 22px;
-
-  flex: 1;
-}
-
-.botao {
-  display: block;
-
-  width: 100%;
-
-  padding: 16px;
-
-  border-radius: 12px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #d97706,
-      #92400e
-    );
+  gap: 11px;
 
   color: white;
 
-  text-align: center;
-
-  font-size: 1.05rem;
-  font-weight: bold;
-
   text-decoration: none;
+
+  background:
+    rgba(6, 20, 34, 0.72);
+
+  border:
+    1px solid rgba(255,255,255,0.17);
+
+  border-radius: 14px;
+
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25);
+
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    border-color 0.2s;
 }
 
-.botao:hover {
-  filter: brightness(1.08);
+.acesso:hover {
+
+  transform:
+    translateY(-4px);
+
+  background:
+    rgba(12, 40, 64, 0.88);
+
+  border-color:
+    rgba(255,255,255,0.35);
 }
+
+
+.acesso-titulo {
+
+  font-size: 1rem;
+
+  font-weight: bold;
+}
+
 
 /* =========================
-   VOLTAR / RODAPÉ
+   SEÇÕES
 ========================= */
 
+.secao {
+
+  padding:
+    90px
+    24px;
+
+  scroll-margin-top: 68px;
+}
+
+.secao-conteudo {
+
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: auto;
+}
+
+.secao h2 {
+
+  margin:
+    0
+    0
+    18px;
+
+  text-align: center;
+
+  font-size: 2rem;
+}
+
+.secao-descricao {
+
+  max-width: 750px;
+
+  margin:
+    0
+    auto;
+
+  text-align: center;
+
+  color: #bfcbd6;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.sobre {
+
+  background: #091522;
+}
+
+
+/* =========================
+   DEPOIMENTOS
+========================= */
+
+.depoimentos {
+
+  background: #0c1a28;
+}
+
+.lista-depoimentos {
+
+  margin-top: 40px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.depoimento {
+
+  padding: 25px;
+
+  background:
+    rgba(255,255,255,0.045);
+
+  border:
+    1px solid rgba(255,255,255,0.10);
+
+  border-radius: 14px;
+}
+
+.depoimento p {
+
+  margin:
+    0
+    0
+    20px;
+
+  color: #d2dae2;
+
+  line-height: 1.65;
+
+  font-style: italic;
+}
+
+.depoimento strong {
+
+  color: white;
+}
+
+.depoimento span {
+
+  display: block;
+
+  margin-top: 5px;
+
+  color: #8798a8;
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================
+   NOVO DEPOIMENTO
+========================= */
+
+.enviar-depoimento {
+
+  background: #091522;
+}
+
+.formulario {
+
+  width: 100%;
+
+  max-width: 700px;
+
+  margin:
+    38px
+    auto
+    0;
+
+  text-align: left;
+}
+
+.formulario label {
+
+  display: block;
+
+  margin:
+    0
+    0
+    7px;
+
+  font-size: 0.9rem;
+
+  color: #d7dee5;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  padding: 14px;
+
+  color: white;
+
+  background: #0e2031;
+
+  border:
+    1px solid #304355;
+
+  border-radius: 9px;
+
+  font-family: inherit;
+
+  font-size: 1rem;
+
+  outline: none;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+
+  border-color: #6e91ad;
+}
+
+.formulario textarea {
+
+  min-height: 130px;
+
+  resize: vertical;
+}
+
+.enviar {
+
+  width: 100%;
+
+  padding: 14px;
+
+  border: 0;
+
+  border-radius: 9px;
+
+  background: #315d7d;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.enviar:hover {
+
+  background: #3c7096;
+}
+
+.aviso {
+
+  margin-top: 12px;
+
+  text-align: center;
+
+  color: #8798a8;
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================
+   CONTATO
+========================= */
+
+.contato {
+
+  background: #0c1a28;
+
+  text-align: center;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
 
 footer {
-  margin-top: 45px;
 
-  color: #888;
+  padding:
+    30px
+    20px;
 
-  font-size: 12px;
+  text-align: center;
+
+  color: #758493;
+
+  background: #050d16;
+
+  border-top:
+    1px solid rgba(255,255,255,0.07);
+
+  font-size: 0.8rem;
 }
+
 
 /* =========================
    TABLETS
 ========================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
   .menu {
+
     position: absolute;
 
     top: 68px;
@@ -292,16 +651,18 @@ footer {
 
     width: 100%;
 
-    background: #161616;
-
-    border-bottom: 1px solid #333;
-
-    padding: 18px 24px;
+    padding: 20px 24px;
 
     flex-direction: column;
+
     align-items: flex-start;
 
-    gap: 18px;
+    gap: 20px;
+
+    background: #07111d;
+
+    border-bottom:
+      1px solid rgba(255,255,255,0.10);
 
     display: none;
   }
@@ -314,84 +675,139 @@ footer {
     display: block;
   }
 
-  .topo-conteudo {
-    gap: 12px;
-  }
-
   .marca {
     flex: 1;
   }
 
+  .acessos {
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .lista-depoimentos {
+
+    grid-template-columns: 1fr;
+  }
+
 }
+
 
 /* =========================
    CELULARES
 ========================= */
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
 
   .topo-conteudo {
-    padding: 0 14px;
+
+    padding:
+      0
+      14px;
+
+    gap: 10px;
   }
 
   .marca span {
+
     display: none;
   }
 
   .marca img {
+
     width: 40px;
     height: 40px;
   }
 
   .minha-conta {
-    padding: 10px 12px;
-    font-size: 0.85rem;
-  }
 
-  .container {
     padding:
-      100px
+      9px
+      11px;
+
+    font-size: 0.84rem;
+  }
+
+  .hero {
+
+    min-height: 650px;
+
+    padding:
+      115px
       16px
-      32px;
+      60px;
+
+    background-position: center;
   }
 
-  .logo {
-    width: 100px;
-    height: 100px;
+  .logo-principal {
+
+    width: 95px;
+    height: 95px;
   }
 
-  .subtitulo {
-    margin-bottom: 28px;
+  .hero-subtitulo {
+
+    margin-bottom: 35px;
+
+    font-size: 1rem;
   }
 
-  .lista-cursos {
-    grid-template-columns: 1fr;
+  .acessos {
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 11px;
   }
 
-  .curso {
-    padding: 22px 18px;
+  .acesso {
+
+    min-height: 115px;
+
+    padding:
+      18px
+      8px;
+  }
+
+  .acesso-titulo {
+
+    font-size: 0.9rem;
+  }
+
+  .secao {
+
+    padding:
+      65px
+      18px;
   }
 
 }
+
 
 /* Celulares muito pequenos */
 
 @media (max-width: 380px) {
 
-  .minha-conta {
-    padding: 9px 10px;
+  .minha-conta .texto-conta {
+
+    display: none;
   }
 
-  .minha-conta .texto-conta {
-    display: none;
+  .acessos {
+
+    grid-template-columns: 1fr;
   }
 
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- ========================
      CABEÇALHO
@@ -401,14 +817,19 @@ footer {
 
   <div class="topo-conteudo">
 
-    <a class="marca" href="#inicio">
+    <a
+      class="marca"
+      href="https://www.cursotecnicopericial.com.br/"
+    >
 
       <img
         src="icon.png"
         alt="CTP"
       >
 
-      <span>Curso Técnico Pericial</span>
+      <span>
+        Curso Técnico Pericial
+      </span>
 
     </a>
 
@@ -418,20 +839,22 @@ footer {
       id="menu"
     >
 
-      <a href="#inicio">
-        Início
-      </a>
-
-      <a href="#cursos">
-        Cursos
-      </a>
-
-      <a href="https://meirere.github.io/pwa-hub/">
+      <a
+        href="https://meirere.github.io/pwa-hub/"
+      >
         Soluções CTP
       </a>
 
       <a href="#sobre">
         Sobre
+      </a>
+
+      <a href="#depoimentos">
+        Depoimentos
+      </a>
+
+      <a href="#contato">
+        Contato
       </a>
 
     </nav>
@@ -465,97 +888,352 @@ footer {
 
 
 <!-- ========================
-     CONTEÚDO
+     CAPA
 ======================== -->
 
-<main
-  class="container"
+<section
+  class="hero"
   id="inicio"
 >
 
-  <img
-    src="icon.png"
-    class="logo"
-    alt="Cursos CTP"
-  >
+  <div class="hero-conteudo">
 
-  <h1>
-    Cursos
-  </h1>
+    <img
+      src="icon.png"
+      class="logo-principal"
+      alt="CTP"
+    >
 
-  <div class="subtitulo">
-    Capacitação aplicada à Perícia Criminal
-  </div>
+    <h1>
+      Curso Técnico Pericial
+    </h1>
 
-
-  <section
-    class="lista-cursos"
-    id="cursos"
-  >
+    <div class="hero-subtitulo">
+      Capacitação, ferramentas e soluções
+      aplicadas à Perícia Criminal.
+    </div>
 
 
-    <!-- CURSO 1 -->
+    <!-- QUATRO ACESSOS -->
 
-    <div class="curso">
+    <div class="acessos">
 
-      <h2>
-        Perícia em Local de
-        Sinistro de Trânsito
-      </h2>
-
-      <p>
-        Curso voltado à capacitação para
-        exames periciais em sinistros de
-        trânsito, abordando os principais
-        elementos técnicos necessários à
-        análise e reconstrução do evento.
-      </p>
 
       <a
-        class="botao"
+        class="acesso"
+        href="https://meirere.github.io/pwa-hub/"
+      >
+
+ 
+        <span class="acesso-titulo">
+          Formulários de Local
+        </span>
+
+      </a>
+
+
+      <a
+        class="acesso"
         href="https://meirere.github.io/pwa_curso_sinistro/"
       >
-        Ver curso
+
+ 
+
+        <span class="acesso-titulo">
+          Cursos Online
+        </span>
+
       </a>
 
-    </div>
-
-
-    <!-- CURSO 2 -->
-
-    <div class="curso">
-
-      <h2>
-        Perícia em Sistema de Freio de
-        Ônibus, Caminhões e Carretas
-      </h2>
-
-      <p>
-        Curso voltado ao exame pericial dos
-        sistemas de freio de veículos pesados,
-        com abordagem prática dos componentes,
-        funcionamento e principais falhas.
-      </p>
 
       <a
-        class="botao"
+        class="acesso"
         href="https://meirere.github.io/pwa-freios/"
       >
-        Ver curso
+
+  
+
+        <span class="acesso-titulo">
+          Minicursos
+        </span>
+
       </a>
+
+
+      <a
+        class="acesso"
+        href="https://meirere.github.io/pwa-frenagem/"
+      >
+
+    
+
+        <span class="acesso-titulo">
+          Software de Cálculo
+        </span>
+
+      </a>
+
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
+<!-- ========================
+     SOBRE
+======================== -->
+
+<section
+  class="secao sobre"
+  id="sobre"
+>
+
+  <div class="secao-conteudo">
+
+    <h2>
+      Sobre o CTP
+    </h2>
+
+    <p class="secao-descricao">
+
+      O Curso Técnico Pericial reúne
+      capacitação, ferramentas e soluções
+      desenvolvidas para aplicação prática
+      na atividade pericial.
+
+    </p>
+
+  </div>
+
+</section>
 
 
-  <footer>
-    © Perito Meirere
-  </footer>
+<!-- ========================
+     DEPOIMENTOS
+======================== -->
 
-</main>
+<section
+  class="secao depoimentos"
+  id="depoimentos"
+>
+
+  <div class="secao-conteudo">
+
+    <h2>
+      O que dizem nossos alunos
+    </h2>
+
+    <p class="secao-descricao">
+
+      Experiências compartilhadas por
+      participantes dos cursos do CTP.
+
+    </p>
+
+
+    <div class="lista-depoimentos">
+
+
+      <div class="depoimento">
+
+        <p>
+          “Espaço reservado para depoimento
+          de aluno.”
+        </p>
+
+        <strong>
+          Nome do aluno
+        </strong>
+
+        <span>
+          Curso realizado
+        </span>
+
+      </div>
+
+
+      <div class="depoimento">
+
+        <p>
+          “Espaço reservado para depoimento
+          de aluno.”
+        </p>
+
+        <strong>
+          Nome do aluno
+        </strong>
+
+        <span>
+          Curso realizado
+        </span>
+
+      </div>
+
+
+      <div class="depoimento">
+
+        <p>
+          “Espaço reservado para depoimento
+          de aluno.”
+        </p>
+
+        <strong>
+          Nome do aluno
+        </strong>
+
+        <span>
+          Curso realizado
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ========================
+     NOVO DEPOIMENTO
+======================== -->
+
+<section
+  class="secao enviar-depoimento"
+>
+
+  <div class="secao-conteudo">
+
+    <h2>
+      Compartilhe sua experiência
+    </h2>
+
+    <p class="secao-descricao">
+
+      Se você já participou de um curso
+      do CTP, deixe seu depoimento.
+
+    </p>
+
+
+    <form
+      class="formulario"
+      id="formDepoimento"
+    >
+
+      <label for="nome">
+        Nome
+      </label>
+
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        required
+      >
+
+
+      <label for="curso">
+        Curso realizado
+      </label>
+
+      <select
+        id="curso"
+        name="curso"
+        required
+      >
+
+        <option value="">
+          Selecione
+        </option>
+
+        <option>
+          Perícia em Local de Sinistro de Trânsito
+        </option>
+
+        <option>
+          Perícia em Sistema de Freio
+        </option>
+
+      </select>
+
+
+      <label for="mensagem">
+        Depoimento
+      </label>
+
+      <textarea
+        id="mensagem"
+        name="mensagem"
+        required
+      ></textarea>
+
+
+      <button
+        type="submit"
+        class="enviar"
+      >
+        Enviar depoimento
+      </button>
+
+
+      <div class="aviso">
+
+        Os depoimentos são publicados
+        após análise.
+
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<!-- ========================
+     CONTATO
+======================== -->
+
+<section
+  class="secao contato"
+  id="contato"
+>
+
+  <div class="secao-conteudo">
+
+    <h2>
+      Contato
+    </h2>
+
+    <p class="secao-descricao">
+
+      Entre em contato para informações
+      sobre cursos e soluções do
+      Curso Técnico Pericial.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ========================
+     RODAPÉ
+======================== -->
+
+<footer>
+
+  Curso Técnico Pericial — CTP
+  <br><br>
+
+  © 2026 Perito Meirere
+
+</footer>
 
 
 <script>
@@ -563,17 +1241,20 @@ footer {
 /* Service Worker */
 
 if ('serviceWorker' in navigator) {
+
   navigator.serviceWorker.register('sw.js');
+
 }
 
 
-/* Menu para celular */
+/* Menu celular */
 
 const botaoMenu =
   document.getElementById('botaoMenu');
 
 const menu =
   document.getElementById('menu');
+
 
 botaoMenu.addEventListener(
   'click',
@@ -585,7 +1266,7 @@ botaoMenu.addEventListener(
 );
 
 
-/* Fecha o menu depois de clicar */
+/* Fecha menu após clicar */
 
 document
   .querySelectorAll('.menu a')
@@ -602,7 +1283,26 @@ document
 
   });
 
+
+/* Formulário ainda sem banco de dados */
+
+document
+  .getElementById('formDepoimento')
+  .addEventListener(
+    'submit',
+    function(event) {
+
+      event.preventDefault();
+
+      alert(
+        'O envio dos depoimentos será ativado na próxima etapa.'
+      );
+
+    }
+  );
+
 </script>
+
 
 </body>
 </html>
