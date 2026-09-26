@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Cursos | Perícia Criminal</title>
+<title>Cursos | Curso Técnico Pericial</title>
 
 <link rel="manifest" href="manifest.json">
 
@@ -13,52 +13,212 @@
 
 <style>
 
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   background: #111;
   color: white;
   font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
 }
+
+/* =========================
+   CABEÇALHO FIXO
+========================= */
+
+.topo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+
+  background: rgba(17, 17, 17, 0.96);
+  border-bottom: 1px solid #333;
+
+  display: flex;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.topo-conteudo {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Marca */
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+
+  white-space: nowrap;
+}
+
+.marca img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Navegação */
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+}
+
+.menu a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: white;
+}
+
+/* Minha Conta */
+
+.minha-conta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 11px 17px;
+
+  background: #8b0000;
+  color: white;
+
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.92rem;
+
+  border-radius: 10px;
+  white-space: nowrap;
+
+  transition: 0.2s;
+}
+
+.minha-conta:hover {
+  background: #a80000;
+  transform: translateY(-1px);
+}
+
+/* Botão menu celular */
+
+.menu-mobile {
+  display: none;
+
+  background: transparent;
+  border: 1px solid #444;
+  color: white;
+
+  border-radius: 8px;
+  padding: 8px 10px;
+
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
 
 .container {
   width: 100%;
-  max-width: 620px;
-  padding: 24px;
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding: 110px 24px 40px;
+
   text-align: center;
-  box-sizing: border-box;
 }
 
 .logo {
-  width: 110px;
-  height: 110px;
+  width: 120px;
+  height: 120px;
+
   object-fit: contain;
+
   margin: 10px auto 20px;
+
   display: block;
+
   border-radius: 12px;
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   margin: 0 0 10px;
 }
 
 .subtitulo {
   color: #cfcfcf;
   font-size: 1.05rem;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+/* =========================
+   CURSOS
+========================= */
+
+.lista-cursos {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 24px;
+
+  align-items: stretch;
 }
 
 .curso {
   background: #1c1c1c;
+
   border: 1px solid #333;
   border-radius: 18px;
-  padding: 24px 20px;
-  margin: 20px 0;
+
+  padding: 26px 22px;
+
   text-align: left;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.35);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .curso h2 {
@@ -68,35 +228,176 @@ h1 {
 
 .curso p {
   color: #cfcfcf;
-  line-height: 1.5;
-  margin-bottom: 20px;
+  line-height: 1.6;
+
+  margin: 0 0 22px;
+
+  flex: 1;
 }
 
 .botao {
   display: block;
+
   width: 100%;
+
   padding: 16px;
+
   border-radius: 12px;
-  background: linear-gradient(135deg, #d97706, #92400e);
+
+  background:
+    linear-gradient(
+      135deg,
+      #d97706,
+      #92400e
+    );
+
   color: white;
+
   text-align: center;
+
   font-size: 1.05rem;
   font-weight: bold;
+
   text-decoration: none;
-  box-sizing: border-box;
 }
+
+.botao:hover {
+  filter: brightness(1.08);
+}
+
+/* =========================
+   VOLTAR / RODAPÉ
+========================= */
 
 .voltar {
   display: inline-block;
-  margin-top: 28px;
+
+  margin-top: 38px;
+
   color: #bbb;
   text-decoration: none;
 }
 
+.voltar:hover {
+  color: white;
+}
+
 footer {
-  margin-top: 40px;
+  margin-top: 45px;
+
   color: #888;
+
   font-size: 12px;
+}
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 850px) {
+
+  .menu {
+    position: absolute;
+
+    top: 68px;
+    left: 0;
+
+    width: 100%;
+
+    background: #161616;
+
+    border-bottom: 1px solid #333;
+
+    padding: 18px 24px;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    display: none;
+  }
+
+  .menu.ativo {
+    display: flex;
+  }
+
+  .menu-mobile {
+    display: block;
+  }
+
+  .topo-conteudo {
+    gap: 12px;
+  }
+
+  .marca {
+    flex: 1;
+  }
+
+}
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 650px) {
+
+  .topo-conteudo {
+    padding: 0 14px;
+  }
+
+  .marca span {
+    display: none;
+  }
+
+  .marca img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .minha-conta {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .container {
+    padding:
+      100px
+      16px
+      32px;
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .subtitulo {
+    margin-bottom: 28px;
+  }
+
+  .lista-cursos {
+    grid-template-columns: 1fr;
+  }
+
+  .curso {
+    padding: 22px 18px;
+  }
+
+}
+
+/* Celulares muito pequenos */
+
+@media (max-width: 380px) {
+
+  .minha-conta {
+    padding: 9px 10px;
+  }
+
+  .minha-conta .texto-conta {
+    display: none;
+  }
+
 }
 
 </style>
@@ -104,65 +405,220 @@ footer {
 
 <body>
 
-<div class="container">
+<!-- ========================
+     CABEÇALHO
+======================== -->
 
-<img src="icon.png" class="logo" alt="Cursos CTP">
+<header class="topo">
 
-<h1>Cursos</h1>
+  <div class="topo-conteudo">
 
-<div class="subtitulo">
-Capacitação aplicada à Perícia Criminal
-</div>
+    <a class="marca" href="#inicio">
 
+      <img
+        src="icon.png"
+        alt="CTP"
+      >
 
-<div class="curso">
+      <span>Curso Técnico Pericial</span>
 
-<h2>Perícia em Local de Sinistro de Trânsito</h2>
-
-<p>
-Curso voltado à capacitação para exames periciais em sinistros de trânsito,
-abordando os principais elementos técnicos necessários à análise e
-reconstrução do evento.
-</p>
-
-<a class="botao" href="https://meirere.github.io/pwa_curso_sinistro/">
-Ver curso
-</a>
-
-</div>
+    </a>
 
 
-<div class="curso">
+    <nav
+      class="menu"
+      id="menu"
+    >
 
-<h2>Perícia em Sistema de Freio de Ônibus, Caminhões e Carretas</h2>
+      <a href="#inicio">
+        Início
+      </a>
 
-<p>
-Curso voltado ao exame pericial dos sistemas de freio de veículos pesados,
-com abordagem prática dos componentes, funcionamento e principais falhas.
-</p>
+      <a href="#cursos">
+        Cursos
+      </a>
 
-<a class="botao" href="https://meirere.github.io/pwa-freios/">
-Ver curso
-</a>
+      <a href="#solucoes">
+        Soluções CTP
+      </a>
 
-</div>
+      <a href="#sobre">
+        Sobre
+      </a>
+
+    </nav>
 
 
-<a class="voltar" href="https://meirere.github.io/pwa-hub/">
-← Voltar para o HUB
-</a>
+    <a
+      class="minha-conta"
+      href="login.html"
+    >
 
-<footer>
-© Perito Meirere
-</footer>
+      <span>👤</span>
 
-</div>
+      <span class="texto-conta">
+        Minha Conta
+      </span>
+
+    </a>
+
+
+    <button
+      class="menu-mobile"
+      id="botaoMenu"
+      aria-label="Abrir menu"
+    >
+      ☰
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- ========================
+     CONTEÚDO
+======================== -->
+
+<main
+  class="container"
+  id="inicio"
+>
+
+  <img
+    src="icon.png"
+    class="logo"
+    alt="Cursos CTP"
+  >
+
+  <h1>
+    Cursos
+  </h1>
+
+  <div class="subtitulo">
+    Capacitação aplicada à Perícia Criminal
+  </div>
+
+
+  <section
+    class="lista-cursos"
+    id="cursos"
+  >
+
+
+    <!-- CURSO 1 -->
+
+    <div class="curso">
+
+      <h2>
+        Perícia em Local de
+        Sinistro de Trânsito
+      </h2>
+
+      <p>
+        Curso voltado à capacitação para
+        exames periciais em sinistros de
+        trânsito, abordando os principais
+        elementos técnicos necessários à
+        análise e reconstrução do evento.
+      </p>
+
+      <a
+        class="botao"
+        href="https://meirere.github.io/pwa_curso_sinistro/"
+      >
+        Ver curso
+      </a>
+
+    </div>
+
+
+    <!-- CURSO 2 -->
+
+    <div class="curso">
+
+      <h2>
+        Perícia em Sistema de Freio de
+        Ônibus, Caminhões e Carretas
+      </h2>
+
+      <p>
+        Curso voltado ao exame pericial dos
+        sistemas de freio de veículos pesados,
+        com abordagem prática dos componentes,
+        funcionamento e principais falhas.
+      </p>
+
+      <a
+        class="botao"
+        href="https://meirere.github.io/pwa-freios/"
+      >
+        Ver curso
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <a
+    class="voltar"
+    href="https://meirere.github.io/pwa-hub/"
+  >
+    ← Voltar para o HUB
+  </a>
+
+
+  <footer>
+    © Perito Meirere
+  </footer>
+
+</main>
+
 
 <script>
+
+/* Service Worker */
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
+
+
+/* Menu para celular */
+
+const botaoMenu =
+  document.getElementById('botaoMenu');
+
+const menu =
+  document.getElementById('menu');
+
+botaoMenu.addEventListener(
+  'click',
+  () => {
+
+    menu.classList.toggle('ativo');
+
+  }
+);
+
+
+/* Fecha o menu depois de clicar */
+
+document
+  .querySelectorAll('.menu a')
+  .forEach(link => {
+
+    link.addEventListener(
+      'click',
+      () => {
+
+        menu.classList.remove('ativo');
+
+      }
+    );
+
+  });
 
 </script>
 
