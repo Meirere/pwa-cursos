@@ -1033,64 +1033,13 @@ footer {
     </p>
 
 
-    <div class="lista-depoimentos">
+<div class="lista-depoimentos" id="listaDepoimentos">
 
+  <div class="depoimento">
+    <p>Carregando depoimentos...</p>
+  </div>
 
-      <div class="depoimento">
-
-        <p>
-          “Espaço reservado para depoimento
-          de aluno.”
-        </p>
-
-        <strong>
-          Nome do aluno
-        </strong>
-
-        <span>
-          Curso realizado
-        </span>
-
-      </div>
-
-
-      <div class="depoimento">
-
-        <p>
-          “Espaço reservado para depoimento
-          de aluno.”
-        </p>
-
-        <strong>
-          Nome do aluno
-        </strong>
-
-        <span>
-          Curso realizado
-        </span>
-
-      </div>
-
-
-      <div class="depoimento">
-
-        <p>
-          “Espaço reservado para depoimento
-          de aluno.”
-        </p>
-
-        <strong>
-          Nome do aluno
-        </strong>
-
-        <span>
-          Curso realizado
-        </span>
-
-      </div>
-
-
-    </div>
+</div>
 
   </div>
 
@@ -1155,7 +1104,7 @@ footer {
         </option>
 
         <option>
-          Perícia em Sistema de Freio
+          Perícia em Sistema de Freio de Ônibus, Caminhões e Carretas
         </option>
 
       </select>
@@ -1282,21 +1231,155 @@ document
     );
 
   });
+/* =========================
+   DEPOIMENTOS - SUPABASE
+========================= */
+
+const SUPABASE_URL =
+  'https://zkbgjschdjnmbczlxqcw.supabase.co';
+
+const SUPABASE_KEY =
+  'sb_publishable_V3FoZmY217uhwXXEuMQ0-g_ghTi8Kh2';
+
+async function carregarDepoimentos() {
+
+  const lista =
+    document.getElementById('listaDepoimentos');
+
+  try {
+
+    const resposta = await fetch(
+      `${SUPABASE_URL}/rest/v1/depoimentos?select=nome,curso,depoimento&aprovado=eq.true&order=created_at.desc`,
+      {
+        headers: {
+          'apikey': SUPABASE_KEY
+        }
+      }
+    );
+
+    if (!resposta.ok) {
+      throw new Error('Erro ao consultar depoimentos');
+    }
+
+    const depoimentos = await resposta.json();
+
+    lista.innerHTML = '';
+
+    if (depoimentos.length === 0) {
+
+      lista.innerHTML = `
+        <div class="depoimento">
+          <p>Nenhum depoimento publicado ainda.</p>
+        </div>
+      `;
+
+      return;
+    }
+
+    depoimentos.forEach(item => {
+
+      const card = document.createElement('div');
+      card.className = 'depoimento';
+
+      const texto = document.createElement('p');
+      texto.textContent = `“${item.depoimento}”`;
+
+      const nome = document.createElement('strong');
+      nome.textContent = item.nome;
+
+      const curso = document.createElement('span');
+      curso.textContent = item.curso;
+
+      card.appendChild(texto);
+      card.appendChild(nome);
+      card.appendChild(curso);
+
+      lista.appendChild(card);
+
+    });
+
+  } catch (erro) {
+
+    console.error(erro);
+
+    lista.innerHTML = `
+      <div class="depoimento">
+        <p>Não foi possível carregar os depoimentos.</p>
+      </div>
+    `;
+
+  }
+}
+
+carregarDepoimentos();
 
 
-/* Formulário ainda sem banco de dados */
+/* =========================
+   ENVIO DE DEPOIMENTOS
+========================= */
 
 document
   .getElementById('formDepoimento')
   .addEventListener(
     'submit',
-    function(event) {
+    async function(event) {
 
       event.preventDefault();
 
-      alert(
-        'O envio dos depoimentos será ativado na próxima etapa.'
-      );
+      const nome =
+        document.getElementById('nome').value.trim();
+
+      const curso =
+        document.getElementById('curso').value;
+
+      const depoimento =
+        document.getElementById('mensagem').value.trim();
+
+      try {
+
+        const resposta = await fetch(
+          `${SUPABASE_URL}/rest/v1/depoimentos`,
+          {
+            method: 'POST',
+
+            headers: {
+              'apikey': SUPABASE_KEY,
+              'Content-Type': 'application/json',
+              'Prefer': 'return=minimal'
+            },
+
+            body: JSON.stringify({
+              nome: nome,
+              curso: curso,
+              depoimento: depoimento,
+              aprovado: false
+            })
+          }
+        );
+
+        if (!resposta.ok) {
+          throw new Error(
+            'Erro ao enviar depoimento'
+          );
+        }
+
+        alert(
+          'Depoimento enviado com sucesso! Ele será publicado após análise.'
+        );
+
+        document
+          .getElementById('formDepoimento')
+          .reset();
+
+      } catch (erro) {
+
+        console.error(erro);
+
+        alert(
+          'Não foi possível enviar o depoimento. Tente novamente.'
+        );
+
+      }
 
     }
   );
