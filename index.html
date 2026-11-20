@@ -414,8 +414,170 @@ body {
 ========================= */
 
 .sobre {
-
   background: #091522;
+}
+
+.sobre .secao-descricao {
+  max-width: 850px;
+  margin: 0 auto 20px;
+  line-height: 1.8;
+}
+
+.sobre-subtitulo {
+  margin: 55px 0 28px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.sobre-pilares {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.sobre-pilar {
+  padding: 30px 24px;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  text-align: center;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.sobre-pilar:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.075);
+}
+
+.sobre-icone {
+  font-size: 2.3rem;
+  margin-bottom: 18px;
+}
+
+.sobre-pilar h4 {
+  margin: 0 0 15px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.sobre-pilar p {
+  margin: 0;
+  color: #bfcbd6;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.sobre-frase {
+  margin: 45px auto 0;
+  max-width: 800px;
+  text-align: center;
+  color: #9fc5df;
+  font-size: 1.15rem;
+  font-weight: bold;
+  line-height: 1.7;
+}
+
+/* Tablets e celulares */
+
+@media (max-width: 900px) {
+  .sobre-pilares {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-pilar {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .sobre-subtitulo {
+    margin-top: 40px;
+    font-size: 1.3rem;
+  }
+
+  .sobre-pilar {
+    padding: 25px 20px;
+  }
+
+  .sobre-frase {
+    font-size: 1rem;
+  }
+}
+
+/* =========================
+   TREINAMENTOS INSTITUCIONAIS
+========================= */
+
+.treinamentos-institucionais {
+  background: #0c1a28;
+}
+
+.treinamento-card {
+  max-width: 850px;
+  margin: 40px auto 0;
+  padding: 35px;
+
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+}
+
+.treinamento-card h3 {
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.treinamento-card p {
+  color: #d2dae2;
+  line-height: 1.7;
+}
+
+.treinamento-card ul {
+  padding-left: 22px;
+  margin: 20px 0;
+  color: #d2dae2;
+  line-height: 1.9;
+}
+
+.botao-proposta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 24px;
+
+  background: #315d7d;
+  color: #ffffff;
+
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+
+  border-radius: 9px;
+  transition: background 0.2s;
+}
+
+.botao-proposta:hover {
+  background: #3c7096;
+}
+
+@media (max-width: 600px) {
+  .treinamento-card {
+    padding: 22px;
+  }
+
+  .treinamento-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .botao-proposta {
+    display: block;
+    width: 100%;
+  }
 }
 
 
@@ -600,6 +762,22 @@ body {
   font-size: 0.82rem;
 }
 
+
+/* =========================
+   ÁREA DO ALUNO
+========================= */
+
+.area-do-aluno {
+  background: #091522;
+}
+
+.area-do-aluno .treinamento-card {
+  max-width: 750px;
+}
+
+.area-do-aluno .treinamento-card h3 {
+  text-align: center;
+}
 
 /* =========================
    CONTATO
@@ -845,10 +1023,14 @@ footer {
         Soluções CTP
       </a>
 
+      <a href="#treinamentos-institucionais">
+        Treinamentos Institucionais
+      </a>
+
       <a href="#sobre">
         Sobre
       </a>
-
+      
       <a href="#depoimentos">
         Depoimentos
       </a>
@@ -862,15 +1044,13 @@ footer {
 
     <a
       class="minha-conta"
-      href="login.html"
+      href="#area-do-aluno"
     >
-
       <span>👤</span>
 
       <span class="texto-conta">
-        Minha Conta
+        Área do Aluno
       </span>
-
     </a>
 
 
@@ -985,30 +1165,149 @@ footer {
      SOBRE
 ======================== -->
 
-<section
-  class="secao sobre"
-  id="sobre"
->
+<section class="secao sobre" id="sobre">
 
   <div class="secao-conteudo">
 
-    <h2>
-      Sobre o CTP
-    </h2>
+    <h2>Sobre o CTP</h2>
 
     <p class="secao-descricao">
+      O <strong>CTP – Curso Técnico Pericial</strong>
+      é uma iniciativa dedicada à capacitação
+      técnico-científica e ao desenvolvimento
+      de ferramentas e soluções voltadas à
+      atividade pericial, com ênfase na
+      aplicação prática do conhecimento.
+    </p>
 
-      O Curso Técnico Pericial reúne
-      capacitação, ferramentas e soluções
-      desenvolvidas para aplicação prática
-      na atividade pericial.
+    <p class="secao-descricao">
+      Idealizado por um Perito Criminal Oficial
+      e professor de Física, o CTP nasceu
+      da integração entre a experiência
+      profissional na perícia criminal,
+      o conhecimento científico e a
+      vocação para o ensino.
+    </p>
 
+    <p class="secao-descricao">
+      Nossa proposta é contribuir para o
+      aperfeiçoamento dos profissionais da
+      perícia criminal por meio de cursos,
+      treinamentos especializados,
+      recursos tecnológicos e ferramentas
+      de apoio às atividades periciais.
+    </p>
+
+    <h3 class="sobre-subtitulo">
+      Nossos pilares de atuação
+    </h3>
+
+    <div class="sobre-pilares">
+
+      <div class="sobre-pilar">
+        <div class="sobre-icone">🎓</div>
+        <h4>Capacitação Técnico-Científica</h4>
+        <p>
+          Cursos e treinamentos fundamentados
+          em conhecimentos científicos
+          e aplicações práticas.
+        </p>
+      </div>
+
+      <div class="sobre-pilar">
+        <div class="sobre-icone">💻</div>
+        <h4>Tecnologia Aplicada à Perícia</h4>
+        <p>
+          Desenvolvimento de formulários
+          digitais, softwares e ferramentas
+          de apoio ao trabalho pericial.
+        </p>
+      </div>
+
+      <div class="sobre-pilar">
+        <div class="sobre-icone">📚</div>
+        <h4>Valorização do Conhecimento</h4>
+        <p>
+          Compartilhamento de experiências
+          e metodologias que contribuam
+          para o aprimoramento da
+          atividade pericial.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="sobre-frase">
+      Conhecimento científico, experiência
+      prática e tecnologia a serviço
+      da Perícia Criminal.
     </p>
 
   </div>
 
 </section>
 
+<!-- ========================
+     TREINAMENTOS INSTITUCIONAIS
+======================== -->
+
+<section
+  class="secao treinamentos-institucionais"
+  id="treinamentos-institucionais"
+>
+
+  <div class="secao-conteudo">
+
+    <h2>Treinamentos Institucionais</h2>
+
+    <p class="secao-descricao">
+      Capacitação técnico-científica para instituições
+      e profissionais da perícia criminal oficial.
+    </p>
+
+    <div class="treinamento-card">
+
+      <h3>
+        Perícia em Sistemas Pneumáticos e Mecânicos
+        de Freio de Ônibus, Caminhões e Carretas
+      </h3>
+
+      <p>
+        Capacitação especializada em inspeção e análise
+        pericial de sistemas de frenagem de veículos
+        pesados, integrando conhecimentos teóricos
+        e atividades práticas.
+      </p>
+
+      <p>
+        <strong>Carga horária:</strong> 16 horas.
+      </p>
+
+      <ul>
+        <li>4 horas de teoria on-line;</li>
+        <li>8 horas de atividades práticas presenciais;</li>
+        <li>4 horas de mentoria prática presencial.</li>
+      </ul>
+
+      <p>
+        <strong>Modalidade:</strong>
+        treinamento institucional para turmas fechadas.
+      </p>
+
+      <a
+        class="botao-proposta"
+        href="https://wa.me/5581994159837?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20comercial%20para%20o%20treinamento%20institucional%20do%20CTP%20em%20sistemas%20de%20freio%20de%20ve%C3%ADculos%20pesados."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Solicitar proposta pelo WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- ========================
      DEPOIMENTOS
@@ -1142,6 +1441,61 @@ footer {
 
 </section>
 
+<!-- ========================
+     ÁREA DO ALUNO
+======================== -->
+
+<section
+  class="secao area-do-aluno"
+  id="area-do-aluno"
+>
+
+  <div class="secao-conteudo">
+
+    <h2>Área do Aluno</h2>
+
+    <p class="secao-descricao">
+      Já adquiriu um curso do CTP?
+      Confira abaixo como acessar suas aulas.
+    </p>
+
+    <div class="treinamento-card">
+
+      <h3>Como acessar suas aulas</h3>
+
+      <p>
+        Após a confirmação do pagamento, o acesso
+        às aulas gravadas é disponibilizado
+        individualmente pelo Google Drive.
+      </p>
+
+      <p>
+        Para assistir às aulas, utilize a conta
+        Google cujo endereço de e-mail foi
+        informado no momento da inscrição
+        e autorizado pelo CTP.
+      </p>
+
+      <p>
+        Caso tenha perdido o link das aulas
+        ou esteja enfrentando dificuldades
+        de acesso, entre em contato conosco.
+      </p>
+
+      <a
+        class="botao-proposta"
+        href="https://wa.me/5581994159837?text=Ol%C3%A1%21%20Sou%20aluno%20do%20CTP%20e%20preciso%20de%20ajuda%20para%20acessar%20minhas%20aulas."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Solicitar suporte pelo WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- ========================
      CONTATO
@@ -1159,12 +1513,32 @@ footer {
     </h2>
 
     <p class="secao-descricao">
-
-      Entre em contato para informações
-      sobre cursos e soluções do
-      Curso Técnico Pericial.
-
+      Entre em contato para informações sobre cursos, treinamentos institucionais e soluções do CTP – Curso Técnico Pericial.
     </p>
+
+  <a
+    class="botao-proposta"
+    href="https://wa.me/5581994159837?text=Ol%C3%A1%21%20Gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20os%20cursos%20e%20servi%C3%A7os%20do%20CTP%20%E2%80%93%20Curso%20T%C3%A9cnico%20Pericial."
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Fale conosco pelo WhatsApp
+  </a>
+
+  <p>
+    (81) 99415-9837
+  </p>
+
+  <a
+  class="botao-proposta"
+  href="mailto:meirere@cursotecnicopericial.com?subject=Contato%20-%20CTP"
+>
+  Envie um e-mail
+</a>
+
+<p>
+  meirere@cursotecnicopericial.com
+</p>
 
   </div>
 
